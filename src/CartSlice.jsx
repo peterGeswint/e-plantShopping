@@ -16,6 +16,7 @@ export const CartSlice = createSlice({
       }
     
     },
+
     removeItem: (state, action) => {
       state.item = state.items.filter(item => item.name !== action.payload);
     },
@@ -28,6 +29,13 @@ export const CartSlice = createSlice({
     },
   },
 });
+
+export const calculateTotalAmount = (state) => {
+  return state.cart.items.reduce((total, item) => {
+    const itemCost = parseFloat(item.cost.substring(1)); // Convert cost string to number
+    return total + itemCost * item.quantity;
+  }, 0);
+};
 
 export const { addItem, removeItem, updateQuantity } = CartSlice.actions;
 

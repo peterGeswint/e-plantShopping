@@ -294,6 +294,9 @@ function ProductList({ onHomeClick }) {
                 <div className="product-title">{plant.name}</div>
                 {/*Similarly like the above plant.name show other details like description and cost*/}
                 <button  className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                <button className="product-increment" onClick={() => handleIncrement(item)}>+</button>
+                <button className="handleDecrement" onClick={() => handleDecrement(item)}>-</button>
+                <button className="handleRemove" onClick={() => handleRemove(item)}>Remove</button>
             </div>
             ))}
         </div>
